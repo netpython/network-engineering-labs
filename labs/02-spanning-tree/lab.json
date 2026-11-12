@@ -1,0 +1,53 @@
+{
+  "slug": "02-spanning-tree",
+  "title": "Control the spanning-tree root",
+  "discipline": "Switching",
+  "level": "Foundation",
+  "minutes": 40,
+  "nodes": {
+    "SW1": {
+      "kind": "switch",
+      "interfaces": {
+        "GigabitEthernet0_0": "-",
+        "GigabitEthernet0_1": "-"
+      }
+    },
+    "SW2": {
+      "kind": "switch",
+      "interfaces": {
+        "GigabitEthernet0_0": "-",
+        "GigabitEthernet0_1": "-"
+      }
+    },
+    "SW3": {
+      "kind": "switch",
+      "interfaces": {
+        "GigabitEthernet0_0": "-",
+        "GigabitEthernet0_1": "-"
+      }
+    }
+  },
+  "links": [
+    [
+      "SW1",
+      "GigabitEthernet0/0",
+      "SW2",
+      "GigabitEthernet0/0",
+      "trunk"
+    ],
+    [
+      "SW2",
+      "GigabitEthernet0/1",
+      "SW3",
+      "GigabitEthernet0/0",
+      "trunk"
+    ],
+    [
+      "SW3",
+      "GigabitEthernet0/1",
+      "SW1",
+      "GigabitEthernet0/1",
+      "trunk"
+    ]
+  ]
+}

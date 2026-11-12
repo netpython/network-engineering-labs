@@ -1,0 +1,2 @@
+set pcname B-USERS
+ip 10.2.30.30/24 10.2.30.1

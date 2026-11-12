@@ -1,0 +1,141 @@
+{
+  "slug": "13-two-site-capstone",
+  "title": "Build a resilient two-site enterprise network",
+  "discipline": "Capstone",
+  "level": "Advanced",
+  "minutes": 150,
+  "nodes": {
+    "SWA": {
+      "kind": "switch",
+      "interfaces": {
+        "GigabitEthernet0_0": "-",
+        "GigabitEthernet0_1": "-",
+        "GigabitEthernet0_2": "-",
+        "GigabitEthernet0_3": "-"
+      }
+    },
+    "D1": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "-",
+        "GigabitEthernet0_1": "10.0.1.1/30"
+      }
+    },
+    "D2": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "-",
+        "GigabitEthernet0_1": "10.0.2.1/30"
+      }
+    },
+    "EDGE": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "10.0.1.2/30",
+        "GigabitEthernet0_1": "10.0.2.2/30",
+        "GigabitEthernet0_2": "10.0.3.1/30",
+        "GigabitEthernet0_3": "198.51.100.2/30"
+      }
+    },
+    "BRANCH": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "10.0.3.2/30",
+        "GigabitEthernet0_1": "10.2.30.1/24"
+      }
+    },
+    "ISP": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "198.51.100.1/30",
+        "Loopback0": "203.0.113.10/32"
+      }
+    },
+    "A-USERS": {
+      "kind": "vpcs",
+      "interfaces": {
+        "eth0": "10.1.10.10/24"
+      },
+      "gateway": "10.1.10.1"
+    },
+    "A-SERVERS": {
+      "kind": "vpcs",
+      "interfaces": {
+        "eth0": "10.1.20.20/24"
+      },
+      "gateway": "10.1.20.1"
+    },
+    "B-USERS": {
+      "kind": "vpcs",
+      "interfaces": {
+        "eth0": "10.2.30.30/24"
+      },
+      "gateway": "10.2.30.1"
+    }
+  },
+  "links": [
+    [
+      "D1",
+      "GigabitEthernet0/0",
+      "SWA",
+      "GigabitEthernet0/0",
+      "site A trunk"
+    ],
+    [
+      "D2",
+      "GigabitEthernet0/0",
+      "SWA",
+      "GigabitEthernet0/1",
+      "site A trunk"
+    ],
+    [
+      "A-USERS",
+      "eth0",
+      "SWA",
+      "GigabitEthernet0/2",
+      "VLAN 10"
+    ],
+    [
+      "A-SERVERS",
+      "eth0",
+      "SWA",
+      "GigabitEthernet0/3",
+      "VLAN 20"
+    ],
+    [
+      "D1",
+      "GigabitEthernet0/1",
+      "EDGE",
+      "GigabitEthernet0/0",
+      "10.0.1.0/30"
+    ],
+    [
+      "D2",
+      "GigabitEthernet0/1",
+      "EDGE",
+      "GigabitEthernet0/1",
+      "10.0.2.0/30"
+    ],
+    [
+      "EDGE",
+      "GigabitEthernet0/2",
+      "BRANCH",
+      "GigabitEthernet0/0",
+      "10.0.3.0/30"
+    ],
+    [
+      "BRANCH",
+      "GigabitEthernet0/1",
+      "B-USERS",
+      "eth0",
+      "site B LAN"
+    ],
+    [
+      "EDGE",
+      "GigabitEthernet0/3",
+      "ISP",
+      "GigabitEthernet0/0",
+      "Internet simulation"
+    ]
+  ]
+}

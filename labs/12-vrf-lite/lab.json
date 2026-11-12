@@ -1,0 +1,46 @@
+{
+  "slug": "12-vrf-lite",
+  "title": "Separate overlapping address spaces with VRF-Lite",
+  "discipline": "Virtual routing",
+  "level": "Advanced",
+  "minutes": 55,
+  "nodes": {
+    "R1": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "-",
+        "GigabitEthernet0_1": "-"
+      }
+    },
+    "BLUE-PC": {
+      "kind": "vpcs",
+      "interfaces": {
+        "eth0": "10.10.10.10/24"
+      },
+      "gateway": "10.10.10.1"
+    },
+    "RED-PC": {
+      "kind": "vpcs",
+      "interfaces": {
+        "eth0": "10.10.10.10/24"
+      },
+      "gateway": "10.10.10.1"
+    }
+  },
+  "links": [
+    [
+      "BLUE-PC",
+      "eth0",
+      "R1",
+      "GigabitEthernet0/0",
+      "BLUE tenant"
+    ],
+    [
+      "RED-PC",
+      "eth0",
+      "R1",
+      "GigabitEthernet0/1",
+      "RED tenant"
+    ]
+  ]
+}

@@ -1,0 +1,93 @@
+[
+  {
+    "slug": "01-vlans-and-trunks",
+    "title": "Build VLANs and an 802.1Q trunk",
+    "discipline": "Switching",
+    "level": "Foundation",
+    "minutes": 35
+  },
+  {
+    "slug": "02-spanning-tree",
+    "title": "Control the spanning-tree root",
+    "discipline": "Switching",
+    "level": "Foundation",
+    "minutes": 40
+  },
+  {
+    "slug": "03-lacp-and-intervlan",
+    "title": "Bundle uplinks and route between VLANs",
+    "discipline": "Switching and routing",
+    "level": "Intermediate",
+    "minutes": 50
+  },
+  {
+    "slug": "04-static-routing",
+    "title": "Build a routed path with static routes",
+    "discipline": "Routing",
+    "level": "Foundation",
+    "minutes": 35
+  },
+  {
+    "slug": "05-multiarea-ospf",
+    "title": "Build multi-area OSPF",
+    "discipline": "Routing",
+    "level": "Intermediate",
+    "minutes": 45
+  },
+  {
+    "slug": "06-ebgp-prefix-filtering",
+    "title": "Exchange and filter eBGP prefixes",
+    "discipline": "BGP",
+    "level": "Intermediate",
+    "minutes": 50
+  },
+  {
+    "slug": "07-dhcp-relay",
+    "title": "Serve a remote subnet with DHCP relay",
+    "discipline": "IP services",
+    "level": "Intermediate",
+    "minutes": 40
+  },
+  {
+    "slug": "08-nat-pat",
+    "title": "Provide Internet access with PAT",
+    "discipline": "IP services",
+    "level": "Intermediate",
+    "minutes": 40
+  },
+  {
+    "slug": "09-hsrp-gateway-resilience",
+    "title": "Build a redundant default gateway",
+    "discipline": "Resilience",
+    "level": "Intermediate",
+    "minutes": 50
+  },
+  {
+    "slug": "10-acl-segmentation",
+    "title": "Enforce a small segmentation policy",
+    "discipline": "Security",
+    "level": "Intermediate",
+    "minutes": 40
+  },
+  {
+    "slug": "11-qos-classification-and-shaping",
+    "title": "Classify, mark and shape traffic",
+    "discipline": "QoS",
+    "level": "Intermediate",
+    "minutes": 50
+  },
+  {
+    "slug": "12-vrf-lite",
+    "title": "Separate overlapping address spaces with VRF-Lite",
+    "discipline": "Virtual routing",
+    "level": "Advanced",
+    "minutes": 55
+  },
+  {
+    "slug": "13-two-site-capstone",
+    "title": "Build a resilient two-site enterprise network",
+    "discipline": "Capstone",
+    "level": "Advanced",
+    "minutes": 150
+  }
+]

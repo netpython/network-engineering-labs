@@ -1,0 +1,45 @@
+{
+  "slug": "07-dhcp-relay",
+  "title": "Serve a remote subnet with DHCP relay",
+  "discipline": "IP services",
+  "level": "Intermediate",
+  "minutes": 40,
+  "nodes": {
+    "R1": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "10.10.10.1/24",
+        "GigabitEthernet0_1": "10.0.12.1/30"
+      }
+    },
+    "R2": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "10.0.12.2/30"
+      }
+    },
+    "PC1": {
+      "kind": "vpcs",
+      "interfaces": {
+        "eth0": "dhcp"
+      },
+      "gateway": ""
+    }
+  },
+  "links": [
+    [
+      "PC1",
+      "eth0",
+      "R1",
+      "GigabitEthernet0/0",
+      "client LAN"
+    ],
+    [
+      "R1",
+      "GigabitEthernet0/1",
+      "R2",
+      "GigabitEthernet0/0",
+      "relay-to-server"
+    ]
+  ]
+}

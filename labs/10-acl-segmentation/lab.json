@@ -1,0 +1,46 @@
+{
+  "slug": "10-acl-segmentation",
+  "title": "Enforce a small segmentation policy",
+  "discipline": "Security",
+  "level": "Intermediate",
+  "minutes": 40,
+  "nodes": {
+    "R1": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "10.10.10.1/24",
+        "GigabitEthernet0_1": "10.10.20.1/24"
+      }
+    },
+    "PC1": {
+      "kind": "vpcs",
+      "interfaces": {
+        "eth0": "10.10.10.10/24"
+      },
+      "gateway": "10.10.10.1"
+    },
+    "PC2": {
+      "kind": "vpcs",
+      "interfaces": {
+        "eth0": "10.10.20.20/24"
+      },
+      "gateway": "10.10.20.1"
+    }
+  },
+  "links": [
+    [
+      "PC1",
+      "eth0",
+      "R1",
+      "GigabitEthernet0/0",
+      "user subnet"
+    ],
+    [
+      "PC2",
+      "eth0",
+      "R1",
+      "GigabitEthernet0/1",
+      "server subnet"
+    ]
+  ]
+}

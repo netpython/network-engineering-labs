@@ -1,0 +1,46 @@
+{
+  "slug": "08-nat-pat",
+  "title": "Provide Internet access with PAT",
+  "discipline": "IP services",
+  "level": "Intermediate",
+  "minutes": 40,
+  "nodes": {
+    "R1": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "10.10.10.1/24",
+        "GigabitEthernet0_1": "198.51.100.2/30"
+      }
+    },
+    "ISP": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "198.51.100.1/30",
+        "Loopback0": "203.0.113.10/32"
+      }
+    },
+    "PC1": {
+      "kind": "vpcs",
+      "interfaces": {
+        "eth0": "10.10.10.10/24"
+      },
+      "gateway": "10.10.10.1"
+    }
+  },
+  "links": [
+    [
+      "PC1",
+      "eth0",
+      "R1",
+      "GigabitEthernet0/0",
+      "inside LAN"
+    ],
+    [
+      "R1",
+      "GigabitEthernet0/1",
+      "ISP",
+      "GigabitEthernet0/0",
+      "outside link"
+    ]
+  ]
+}

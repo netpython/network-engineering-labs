@@ -1,0 +1,46 @@
+{
+  "slug": "05-multiarea-ospf",
+  "title": "Build multi-area OSPF",
+  "discipline": "Routing",
+  "level": "Intermediate",
+  "minutes": 45,
+  "nodes": {
+    "R1": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "10.0.12.1/30",
+        "Loopback0": "192.0.2.1/32"
+      }
+    },
+    "R2": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "10.0.12.2/30",
+        "GigabitEthernet0_1": "10.0.23.1/30"
+      }
+    },
+    "R3": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "10.0.23.2/30",
+        "Loopback0": "198.51.100.1/32"
+      }
+    }
+  },
+  "links": [
+    [
+      "R1",
+      "GigabitEthernet0/0",
+      "R2",
+      "GigabitEthernet0/0",
+      "area 0"
+    ],
+    [
+      "R2",
+      "GigabitEthernet0/1",
+      "R3",
+      "GigabitEthernet0/0",
+      "area 10"
+    ]
+  ]
+}

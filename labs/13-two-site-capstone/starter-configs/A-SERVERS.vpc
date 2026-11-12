@@ -1,0 +1,2 @@
+set pcname A-SERVERS
+ip 10.1.20.20/24 10.1.20.1

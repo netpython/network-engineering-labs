@@ -1,0 +1,33 @@
+{
+  "slug": "06-ebgp-prefix-filtering",
+  "title": "Exchange and filter eBGP prefixes",
+  "discipline": "BGP",
+  "level": "Intermediate",
+  "minutes": 50,
+  "nodes": {
+    "R1": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "10.0.12.1/30",
+        "Loopback0": "192.0.2.1/24",
+        "Loopback1": "10.99.1.1/24"
+      }
+    },
+    "R2": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "10.0.12.2/30",
+        "Loopback0": "198.51.100.1/24"
+      }
+    }
+  },
+  "links": [
+    [
+      "R1",
+      "GigabitEthernet0/0",
+      "R2",
+      "GigabitEthernet0/0",
+      "eBGP AS65001-AS65002"
+    ]
+  ]
+}

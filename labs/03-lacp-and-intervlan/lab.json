@@ -1,0 +1,83 @@
+{
+  "slug": "03-lacp-and-intervlan",
+  "title": "Bundle uplinks and route between VLANs",
+  "discipline": "Switching and routing",
+  "level": "Intermediate",
+  "minutes": 50,
+  "nodes": {
+    "SW1": {
+      "kind": "switch",
+      "interfaces": {
+        "GigabitEthernet0_0": "-",
+        "GigabitEthernet0_1": "-",
+        "GigabitEthernet0_2": "-",
+        "GigabitEthernet0_3": "-"
+      }
+    },
+    "SW2": {
+      "kind": "switch",
+      "interfaces": {
+        "GigabitEthernet0_0": "-",
+        "GigabitEthernet0_1": "-",
+        "GigabitEthernet0_2": "-"
+      }
+    },
+    "R1": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "-"
+      }
+    },
+    "PC1": {
+      "kind": "vpcs",
+      "interfaces": {
+        "eth0": "10.10.10.11/24"
+      },
+      "gateway": "10.10.10.1"
+    },
+    "PC2": {
+      "kind": "vpcs",
+      "interfaces": {
+        "eth0": "10.10.20.12/24"
+      },
+      "gateway": "10.10.20.1"
+    }
+  },
+  "links": [
+    [
+      "SW1",
+      "GigabitEthernet0/0",
+      "SW2",
+      "GigabitEthernet0/0",
+      "LACP 1"
+    ],
+    [
+      "SW1",
+      "GigabitEthernet0/1",
+      "SW2",
+      "GigabitEthernet0/1",
+      "LACP 2"
+    ],
+    [
+      "SW1",
+      "GigabitEthernet0/2",
+      "R1",
+      "GigabitEthernet0/0",
+      "802.1Q"
+    ],
+    [
+      "PC1",
+      "eth0",
+      "SW1",
+      "GigabitEthernet0/3",
+      "VLAN 10"
+    ],
+    [
+      "PC2",
+      "eth0",
+      "SW2",
+      "GigabitEthernet0/2",
+      "VLAN 20"
+    ]
+  ]
+}
