@@ -1,0 +1,32 @@
+{
+  "slug": "14-ipv6-static-routing",
+  "title": "Route IPv6 between two loopbacks",
+  "discipline": "IPv6 routing",
+  "level": "Foundation",
+  "minutes": 30,
+  "nodes": {
+    "R1": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "2001:db8:12::1/64",
+        "Loopback0": "2001:db8:1::1/128"
+      }
+    },
+    "R2": {
+      "kind": "router",
+      "interfaces": {
+        "GigabitEthernet0_0": "2001:db8:12::2/64",
+        "Loopback0": "2001:db8:2::2/128"
+      }
+    }
+  },
+  "links": [
+    [
+      "R1",
+      "GigabitEthernet0/0",
+      "R2",
+      "GigabitEthernet0/0",
+      "2001:db8:12::/64"
+    ]
+  ]
+}

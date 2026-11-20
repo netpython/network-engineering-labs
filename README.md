@@ -2,9 +2,9 @@
 
 **Build a network, explain its behavior, and prove it works.**
 
-Twelve progressive Cisco IOS / IOS XE labs lead into a two-site enterprise capstone. The exercises cover switching, routing, BGP, DHCP, NAT, HSRP, ACLs, QoS and VRF-Lite.
+Thirteen progressive Cisco IOS / IOS XE labs lead into a two-site enterprise capstone. The exercises cover switching, routing, BGP, DHCP, NAT, HSRP, ACLs, QoS and VRF-Lite.
 
-`12 guided labs` · `1 capstone` · `Starter and final configs` · `Acceptance checks`
+`13 guided labs` · `1 capstone` · `Starter and final configs` · `Acceptance checks`
 
 ## Follow the learning path
 
@@ -23,6 +23,7 @@ Twelve progressive Cisco IOS / IOS XE labs lead into a two-site enterprise capst
 | [11 · Classify, mark and shape traffic](labs/11-qos-classification-and-shaping/README.md) | QoS | Intermediate | 50 min |
 | [12 · Separate overlapping address spaces with VRF-Lite](labs/12-vrf-lite/README.md) | Virtual routing | Advanced | 55 min |
 | [13 · Build a resilient two-site enterprise network](labs/13-two-site-capstone/README.md) | Capstone | Advanced | 150 min |
+| [14 · Route IPv6 between two loopbacks](labs/14-ipv6-static-routing/README.md) | IPv6 routing | Foundation | 30 min |
 
 ## What each lab includes
 
@@ -46,6 +47,6 @@ Validate cross-VLAN and cross-site forwarding, then disconnect a distribution up
 
 The first release targets Cisco IOS / IOS XE routing and IOSvL2 switching. You need licensed images with the required features. The address plans, cabling, configuration files and local documentation links have been reviewed offline. Live emulator testing is pending.
 
-MPLS L3VPN, VXLAN/EVPN, iBGP route reflectors and redistribution are candidates for later releases. They are outside this initial 12-lab curriculum.
+MPLS L3VPN, VXLAN/EVPN, iBGP route reflectors and redistribution are candidates for later releases. They are outside the current curriculum.
 
 The exercise format is inspired by objective-driven lab collections such as GNS3Vault. The scenarios, configurations and solutions here are original. See [references](docs/references.md).
