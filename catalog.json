@@ -89,5 +89,12 @@
     "discipline": "Capstone",
     "level": "Advanced",
     "minutes": 150
+  },
+  {
+    "slug": "14-ipv6-static-routing",
+    "title": "Route IPv6 between two loopbacks",
+    "discipline": "IPv6 routing",
+    "level": "Foundation",
+    "minutes": 30
   }
 ]
